@@ -15,13 +15,14 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "*/"
     ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
+        "jsEngine": "jsc",
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }

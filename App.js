@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-export default function App() {
+const Stack = createStackNavigator();
+
+import {StatusBar} from 'react-native';
+import COLORS from './src/const/Colors';
+import details from './src/screens/details';
+import home from './src/screens/home';
+import BookingScreen from './src/screens/BookingScreen';
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <StatusBar barStyle="dark-content" backgroundColor={COLORS.white} />
+      <Stack.Navigator screenOptions={{header: () => null}}>
+        <Stack.Screen name="home" component={home} />
+        <Stack.Screen name="details" component={details} />
+        <Stack.Screen name="BookingScreen" component={BookingScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
